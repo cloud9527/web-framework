@@ -26,7 +26,12 @@ public final class ClassHelper {
         String basePackage = ConfigHelper.getAppBasePackage();
         CLASS_SET = ClassUtil.getClassSet(basePackage);
     }
-
+    /**
+     * 获取应用包名下的所有类
+     */
+    public static Set<Class<?>> getClassSet() {
+        return CLASS_SET;
+    }
 
     /**
      * 获取应用包名下所有 Service 类

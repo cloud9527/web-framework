@@ -48,8 +48,8 @@ public class DispatcherServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String reqMethod = req.getMethod().toLowerCase();
-        String requsetPath = req.getPathInfo();
-        Handler handler = ControllerHelper.getHandler(reqMethod, requsetPath);
+        String requestPath = req.getPathInfo();
+        Handler handler = ControllerHelper.getHandler(reqMethod, requestPath);
         if (handler != null) {
             Class<?> controllerClass = handler.getControllerClass();
             Object controllerBean = BeanHelper.getBean(controllerClass);

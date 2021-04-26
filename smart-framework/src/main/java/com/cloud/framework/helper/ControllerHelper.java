@@ -26,23 +26,22 @@ public final class ControllerHelper {
         Set<Class<?>> controllerClassSet = ClassHelper.getControllerClassSet();
         if (CollectionUtil.isNotEmpty(controllerClassSet)) {
             for (Class<?> controllerClass : controllerClassSet) {
-                Method[] declaredMethods = controllerClass.getDeclaredMethods();
-                if (ArrayUtil.isNotEmpty(declaredMethods)) {
-                    for (Method declaredMethod : declaredMethods) {
-                        if (declaredMethod.isAnnotationPresent(Action.class)) {
-                            Action action = declaredMethod.getAnnotation(Action.class);
+                Method[] methods = controllerClass.getDeclaredMethods();
+                if (ArrayUtil.isNotEmpty(methods)) {
+                    for (Method method : methods) {
+                        if (method.isAnnotationPresent(Action.class)) {
+                            Action action = method.getAnnotation(Action.class);
                             String mapping = action.value();
                             if (mapping.matches("\\w+:/\\w*")) {
-                                String[] split = mapping.split(":");
-                                if (ArrayUtil.isNotEmpty(split) && split.length == 2) {
-                                    String requestMethod = split[0];
-                                    String requestPath = split[1];
+                                String[] array = mapping.split(":");
+                                if (ArrayUtil.isNotEmpty(array) && array.length == 2) {
+                                    String requestMethod = array[0];
+                                    String requestPath = array[1];
                                     Request request = new Request(requestMethod, requestPath);
-                                    Handler handler = new Handler(controllerClass, declaredMethod);
+                                    Handler handler = new Handler(controllerClass, method);
                                     ACTION_MAP.put(request, handler);
                                 }
                             }
-
                         }
                     }
                 }

@@ -29,7 +29,7 @@ public class CustomerController {
     public View index(Param param) {
 //        List<Customer> customerList = customerService.getCustomerList();
         List<Customer> customerList = new ArrayList<>();
-        return new View("customer.jsp");
+        return new View("customer.jsp").addModel("customerList", customerList);
     }
 
     /**

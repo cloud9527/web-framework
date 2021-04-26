@@ -3,6 +3,8 @@ package com.cloud.framework.bean;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import java.util.Objects;
+
 /**
  * 封装请求信息
  *
@@ -10,6 +12,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
  * @since 1.0.0
  */
 public class Request {
+
 
     /**
      * 请求方法
