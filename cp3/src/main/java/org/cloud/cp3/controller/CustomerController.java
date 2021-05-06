@@ -2,11 +2,13 @@ package org.cloud.cp3.controller;
 
 
 import com.cloud.framework.annotation.Action;
+import com.cloud.framework.annotation.Aspect;
 import com.cloud.framework.annotation.Controller;
 import com.cloud.framework.annotation.Inject;
 import com.cloud.framework.bean.Data;
 import com.cloud.framework.bean.Param;
 import com.cloud.framework.bean.View;
+import lombok.extern.slf4j.Slf4j;
 import org.cloud.cp3.model.Customer;
 import org.cloud.cp3.service.CustomerService;
 
@@ -17,6 +19,7 @@ import java.util.List;
  * 处理客户管理相关请求
  */
 @Controller
+@Slf4j
 public class CustomerController {
 
     @Inject
@@ -29,6 +32,8 @@ public class CustomerController {
     public View index(Param param) {
 //        List<Customer> customerList = customerService.getCustomerList();
         List<Customer> customerList = new ArrayList<>();
+        log.debug("/customer");
+        System.out.println("/customer");
         return new View("customer.jsp").addModel("customerList", customerList);
     }
 

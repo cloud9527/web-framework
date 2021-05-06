@@ -1,9 +1,6 @@
 package com.cloud.framework;
 
-import com.cloud.framework.helper.BeanHelper;
-import com.cloud.framework.helper.ClassHelper;
-import com.cloud.framework.helper.ControllerHelper;
-import com.cloud.framework.helper.IocHelper;
+import com.cloud.framework.helper.*;
 import com.cloud.framework.util.ClassUtil;
 
 /**
@@ -18,6 +15,7 @@ public final class HelperLoader {
         Class<?>[] classList = {
                 ClassHelper.class,
                 BeanHelper.class,
+                AopHelper.class,
                 IocHelper.class,
                 ControllerHelper.class
         };
